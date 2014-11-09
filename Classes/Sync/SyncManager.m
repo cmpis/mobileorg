@@ -267,7 +267,7 @@ static SyncManager *gInstance = NULL;
     for (LocalEditAction *action in editActions) {
 
         // Don't write out goofy edits where nothing changed
-        if ([action.oldValue isEqualToString:action.newValue]) {
+        if ([action.oldValue isEqualToString:action.theNewValue]) {
             continue;
         }
 
@@ -275,13 +275,13 @@ static SyncManager *gInstance = NULL;
         [file writeData:[[NSString stringWithFormat:@"* F(%@) [[%@][%@]]\n", action.actionType, [localEditNode bestId], EscapeStringForLinkTitle([localEditNode heading])] dataUsingEncoding:NSUTF8StringEncoding]];
         if (!action.actionType || [action.actionType length] == 0) {
             // No edit action means a simple flag entry, just a note.. no old/new values.
-            [file writeData:[[NSString stringWithFormat:@"%@\n", EscapeHeadings(action.newValue)] dataUsingEncoding:NSUTF8StringEncoding]];
+            [file writeData:[[NSString stringWithFormat:@"%@\n", EscapeHeadings(action.theNewValue)] dataUsingEncoding:NSUTF8StringEncoding]];
         } else {
             [file writeData:[@"** Old value\n" dataUsingEncoding:NSUTF8StringEncoding]];
             if (action.oldValue && [action.oldValue length] > 0)
                 [file writeData:[[NSString stringWithFormat:@"%@\n", EscapeHeadings(action.oldValue)] dataUsingEncoding:NSUTF8StringEncoding]];
             [file writeData:[@"** New value\n" dataUsingEncoding:NSUTF8StringEncoding]];
-            [file writeData:[[NSString stringWithFormat:@"%@\n", EscapeHeadings(action.newValue)] dataUsingEncoding:NSUTF8StringEncoding]];
+            [file writeData:[[NSString stringWithFormat:@"%@\n", EscapeHeadings(action.theNewValue)] dataUsingEncoding:NSUTF8StringEncoding]];
             [file writeData:[@"** End of edit\n" dataUsingEncoding:NSUTF8StringEncoding]];
         }
     }

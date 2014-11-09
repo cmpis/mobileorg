@@ -27,7 +27,7 @@
 @implementation LocalEditAction
 
 @dynamic oldValue;
-@dynamic newValue;
+@dynamic theNewValue;
 @dynamic actionType;
 @dynamic createdAt;
 @dynamic nodeId;

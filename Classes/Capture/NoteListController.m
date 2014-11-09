@@ -256,7 +256,7 @@
         Note *noteToDelete = [notesArray objectAtIndex:indexPath.row];
 
         noteToDelete.locallyModified = [NSNumber numberWithBool:true];
-        noteToDelete.deleted = [NSNumber numberWithBool:true];
+        noteToDelete.removed = [NSNumber numberWithBool:true];
 
         Save();
 

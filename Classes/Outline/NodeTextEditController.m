@@ -151,7 +151,7 @@
 
     if (created) {
         self.editAction.oldValue = valueBeforeEditing;
-        self.editAction.newValue = valueBeforeEditing;
+        self.editAction.theNewValue = valueBeforeEditing;
     }
 
     doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(onDone)];
@@ -227,7 +227,7 @@
 
     [self unregisterForKeyboardNotifications];
 
-    if ([self.editAction.oldValue isEqualToString:self.editAction.newValue]) {
+    if ([self.editAction.oldValue isEqualToString:self.editAction.theNewValue]) {
         DeleteLocalEditAction([self editAction]);
         self.editAction = nil;
     }

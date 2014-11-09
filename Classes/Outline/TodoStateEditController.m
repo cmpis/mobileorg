@@ -36,7 +36,7 @@
 - (void)onClearState {
     [node setTodoState:@""];
 
-    self.editAction.newValue = @"";
+    self.editAction.theNewValue = @"";
 
     Save();
 
@@ -56,7 +56,7 @@
         self.editAction = FindOrCreateLocalEditActionForNode(@"edit:todo", node, &created);
         if (created) {
             self.editAction.oldValue = [node todoState];
-            self.editAction.newValue = [node todoState];
+            self.editAction.theNewValue = [node todoState];
         }
     }
     return self;
@@ -204,7 +204,7 @@
 
     [node setTodoState:todoState];
 
-    self.editAction.newValue = [node todoState];
+    self.editAction.theNewValue = [node todoState];
     Save();
 
     UpdateEditActionCount();
