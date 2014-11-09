@@ -1,6 +1,4 @@
 language: objective-c
 xcode_project: MobileOrg.xcodeproj
 xcode_scheme: MobileOrg
-notifications:
-  irc: 
-    - "irc.freenode.net#mobileorg"
+
